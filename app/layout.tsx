@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { CustomPointer } from "@/components/custom-pointer";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { SiteLoader } from "@/components/site-loader";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,7 +26,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SmoothScroll />
+        <SiteLoader />
+        {children}
+        <CustomPointer />
+      </body>
     </html>
   );
 }

@@ -94,7 +94,7 @@ export function ReviewsSection() {
           <article
             key={activeReview.detail}
             aria-live="polite"
-            className="relative flex min-h-[250px] flex-col justify-between overflow-hidden rounded-[1.5rem] bg-[#0755ed] p-5 sm:min-h-[280px] sm:p-7 lg:rounded-[1.75rem] lg:p-8"
+            className="relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-[1.5rem] bg-[#0755ed] p-5 sm:min-h-[240px] sm:p-7 lg:rounded-[1.75rem] lg:p-8"
           >
             <div aria-hidden="true" className="pointer-events-none absolute -right-14 -top-16 size-64 rounded-full border border-white/15 sm:size-80" />
             <div aria-hidden="true" className="pointer-events-none absolute -right-5 -top-7 size-48 rounded-full border border-white/15 sm:size-64" />
@@ -105,13 +105,13 @@ export function ReviewsSection() {
               </span>
               <Quote aria-hidden="true" className="size-9 text-white/40 sm:size-11" strokeWidth={1.5} />
             </div>
-            <div className="relative z-10 mt-7 max-w-[640px] sm:mt-9">
+            <div className="relative z-10 mt-4 max-w-[640px] sm:mt-5">
               <Stars />
               <blockquote className="mt-4 text-[20px] font-medium leading-[1.3] tracking-[-0.035em] sm:text-[24px] lg:text-[28px]">
                 « {activeReview.quote} »
               </blockquote>
             </div>
-            <div className="relative z-10 mt-6 flex items-end justify-between gap-4 border-t border-white/25 pt-4">
+            <div className="relative z-10 mt-4 flex items-end justify-between gap-4 border-t border-white/25 pt-3">
               <div>
                 <p className="text-sm font-semibold">{activeReview.name}</p>
                 <p className="mt-1 text-xs text-white/70">{activeReview.detail}</p>

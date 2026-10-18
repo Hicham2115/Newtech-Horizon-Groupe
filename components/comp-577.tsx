@@ -14,8 +14,10 @@ import { Dialog } from "radix-ui";
 
 // Adapted from the project's Coss Origin navbar (comp-577).
 const navigationLinks = [
+  { href: "#contenu", label: "Accueil" },
   { href: "#expertises", label: "Expertises" },
-  { href: "mailto:mestimox@gmail.com?subject=%C3%80%20propos%20de%20Newtech%20Horizon%20Groupe", label: "À propos" },
+  { href: "#avis", label: "Avis clients" },
+  { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -34,8 +36,17 @@ export default function Navbar() {
       <a href="#contenu" className="sr-only focus:not-sr-only focus:absolute focus:bg-white focus:p-4">Aller au contenu</a>
       <div className="mx-auto flex h-[76px] max-w-[1860px] items-center justify-between gap-3 px-4 sm:px-6 lg:px-[6.5%] xl:h-[80px]">
         <Link href="/" aria-label="Newtech Horizon Groupe — Accueil" className="shrink-0">
-          <span className="block text-[18px] min-[375px]:text-[20px] font-bold leading-tight tracking-[-0.055em] sm:text-[22px] xl:text-[24px]">Newtech Horizon Groupe</span>
-          <span className="mt-1 block text-[11px] leading-tight tracking-[-0.025em] text-[#7a8291] sm:text-xs xl:text-[13px]">Le partenaire de vos solutions techniques</span>
+          <span className="group/brand inline-flex items-center gap-3">
+            <span aria-hidden="true" className="relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-[13px] bg-[#08143c] shadow-[0_5px_14px_-7px_rgba(0,85,255,0.75)] transition-transform duration-300 group-hover/brand:-rotate-3 sm:size-11">
+              <span className="absolute right-[11px] top-[9px] size-2 rounded-full bg-[#ffbf47] sm:right-3 sm:top-[10px]" />
+              <span className="absolute bottom-[9px] left-1/2 h-3 w-7 -translate-x-1/2 rounded-[50%] border-t-[2px] border-[#8fb1ff] sm:bottom-[10px] sm:w-8" />
+              <span className="absolute bottom-[5px] left-1/2 h-3 w-7 -translate-x-1/2 rounded-[50%] border-t-[2px] border-[#0055ff] sm:bottom-[6px] sm:w-8" />
+            </span>
+            <span className="flex flex-col leading-none">
+              <span className="text-[17px] font-extrabold tracking-[-0.06em] text-[#08143c] min-[375px]:text-[19px] sm:text-[21px] xl:text-[23px]">Newtech <span className="text-[#0055ff]">Horizon</span></span>
+              <span className="mt-1.5 text-[9px] font-semibold uppercase tracking-[0.2em] text-[#7a8291] sm:text-[10px]">Groupe <span className="mx-1 text-[#0055ff]">·</span> Solutions techniques</span>
+            </span>
+          </span>
         </Link>
         <NavigationMenu aria-label="Navigation principale" className="hidden flex-none lg:flex" viewport={false}>
           <NavigationMenuList className="gap-3 xl:gap-8">
