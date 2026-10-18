@@ -48,15 +48,15 @@ export default function Navbar() {
             </span>
           </span>
         </Link>
-        <NavigationMenu aria-label="Navigation principale" className="hidden flex-none lg:flex" viewport={false}>
+        <NavigationMenu aria-label="Navigation principale" className="hidden flex-none xl:flex" viewport={false}>
           <NavigationMenuList className="gap-3 xl:gap-8">
             {navigationLinks.map((link) => <NavigationMenuItem key={link.label}><NavigationMenuLink className="relative rounded-sm px-1 py-3 text-[14px] font-medium transition-colors hover:bg-transparent hover:text-[#0055ff] after:absolute after:inset-x-1 after:bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:bg-[#0055ff] after:transition-transform after:duration-300 hover:after:scale-x-100 focus-visible:after:scale-x-100 motion-reduce:after:transition-none xl:text-[14px]" href={link.href}>{link.label}</NavigationMenuLink></NavigationMenuItem>)}
           </NavigationMenuList>
         </NavigationMenu>
-        <Button render={<a href="#contact" />} nativeButton={false} className="hidden h-[46px] gap-5 rounded-[5px] bg-[#0055ff] px-5 text-sm font-semibold text-white hover:bg-[#0046d6] lg:inline-flex xl:px-8 xl:text-sm">Parlons de votre projet <ArrowRight className="size-5" /></Button>
+        <Button render={<a href="#contact" />} nativeButton={false} className="hidden h-[46px] gap-5 rounded-[5px] bg-[#0055ff] px-5 text-sm font-semibold text-white hover:bg-[#0046d6] xl:inline-flex xl:px-8 xl:text-sm">Parlons de votre projet <ArrowRight className="size-5" /></Button>
         <Dialog.Root open={open} onOpenChange={setOpen}>
           <Dialog.Trigger asChild>
-            <button type="button" aria-label="Ouvrir le menu" className="inline-flex size-11 shrink-0 items-center justify-center rounded-lg border border-blue-100 text-[#08143c] transition-colors hover:bg-blue-50 lg:hidden"><Menu size={22} /></button>
+            <button type="button" aria-label="Ouvrir le menu" className="inline-flex size-11 shrink-0 items-center justify-center rounded-lg border border-blue-100 text-[#08143c] transition-colors hover:bg-blue-50 xl:hidden"><Menu size={22} /></button>
           </Dialog.Trigger>
           <Dialog.Portal>
             <Dialog.Overlay className="fixed inset-0 z-40 bg-[#08143c]/45 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 motion-reduce:animate-none" />

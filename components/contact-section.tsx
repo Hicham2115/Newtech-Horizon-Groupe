@@ -8,7 +8,7 @@ export function ContactSection() {
     <section id="contact" aria-labelledby="contact-title" className="relative scroll-mt-8 overflow-hidden bg-white text-[#08143c]">
       <div aria-hidden="true" className="pointer-events-none absolute -right-36 top-32 size-[30rem] rounded-full border border-[#edf2fa]" />
       <div className="relative mx-auto max-w-[1440px] px-5 py-14 sm:px-8 sm:py-16 lg:px-[6.5%] lg:py-20">
-        <div className="mb-9 flex items-center justify-between border-b border-[#dfe6f0] pb-4">
+        <div className="mb-9 flex flex-col items-start gap-2 border-b border-[#dfe6f0] pb-4 min-[400px]:flex-row min-[400px]:items-center min-[400px]:justify-between">
           <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#7b89a2]"><span aria-hidden="true" className="h-0.5 w-8 bg-[#0055ff]" />Prenons contact</p>
           <span className="text-[10px] uppercase tracking-[0.15em] text-[#7b89a2]">Rabat · Hay Riad</span>
         </div>
@@ -37,13 +37,13 @@ export function ContactSection() {
         <aside className="relative mt-8 overflow-hidden rounded-2xl bg-[#08143c] p-6 text-white sm:mt-10 sm:p-8 lg:p-10">
           <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-20 size-64 rounded-full border border-white/10 sm:size-80" />
           <div aria-hidden="true" className="pointer-events-none absolute right-10 -top-10 size-48 rounded-full border border-white/10 sm:right-20" />
-          <div className="relative z-10 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+          <div className="relative z-10 grid gap-6 xl:grid-cols-[1fr_auto_1fr] xl:items-center">
             <div>
               <p className="mb-3 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#9fbaff]"><span className="size-1.5 rounded-full bg-[#ffbf47]" />Un échange direct</p>
               <h3 className="max-w-md text-2xl font-bold leading-tight tracking-[-0.045em] sm:text-[30px]">Vous préférez en parler de vive voix ?</h3>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-white/65 lg:justify-self-center">Appelez-nous et faisons le point sur votre besoin, simplement.</p>
-            <div className="flex flex-col items-start gap-4 lg:items-end">
+            <div className="flex flex-col items-start gap-4 xl:items-end">
               <a href="tel:+212661137405" className="group inline-flex min-h-12 items-center justify-center gap-4 rounded-lg bg-[#0055ff] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#246bff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Appeler l’équipe<ArrowUpRight aria-hidden="true" size={17} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" /></a>
               <span className="flex items-center gap-3 text-xs text-white/55"><span className="size-2 rounded-full bg-emerald-400" />À votre écoute à Rabat · Hay Riad</span>
             </div>
