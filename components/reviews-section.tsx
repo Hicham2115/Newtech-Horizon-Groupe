@@ -1,4 +1,7 @@
-import { ArrowUpRight, Quote, Star } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Quote, Star } from "lucide-react";
 
 const reviews = [
   {
@@ -7,7 +10,7 @@ const reviews = [
     name: "Client professionnel",
     detail: "Réseaux & téléphonie",
     initials: "CP",
-    tone: "blue",
+    tone: "sand",
   },
   {
     quote:
@@ -15,7 +18,7 @@ const reviews = [
     name: "Client professionnel",
     detail: "Sécurité & vidéosurveillance",
     initials: "CP",
-    tone: "sand",
+    tone: "white",
   },
   {
     quote:
@@ -54,7 +57,11 @@ function Stars() {
 }
 
 export function ReviewsSection() {
-  const [featuredReview, ...supportingReviews] = reviews;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeReview = reviews[activeIndex];
+  const nextReview = () => setActiveIndex((index) => (index + 1) % reviews.length);
+  const previousReview = () =>
+    setActiveIndex((index) => (index - 1 + reviews.length) % reviews.length);
 
   return (
     <section
@@ -84,7 +91,11 @@ export function ReviewsSection() {
         </div>
 
         <div className="grid items-stretch gap-4 lg:grid-cols-[1.15fr_0.85fr] lg:gap-5">
-          <article className="relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded-[1.5rem] bg-[#0755ed] p-6 sm:min-h-[340px] sm:p-9 lg:rounded-[2rem] lg:p-11">
+          <article
+            key={activeReview.detail}
+            aria-live="polite"
+            className="relative flex min-h-[250px] flex-col justify-between overflow-hidden rounded-[1.5rem] bg-[#0755ed] p-5 sm:min-h-[280px] sm:p-7 lg:rounded-[1.75rem] lg:p-8"
+          >
             <div aria-hidden="true" className="pointer-events-none absolute -right-14 -top-16 size-64 rounded-full border border-white/15 sm:size-80" />
             <div aria-hidden="true" className="pointer-events-none absolute -right-5 -top-7 size-48 rounded-full border border-white/15 sm:size-64" />
             <div className="relative z-10 flex items-center justify-between">
@@ -94,68 +105,111 @@ export function ReviewsSection() {
               </span>
               <Quote aria-hidden="true" className="size-9 text-white/40 sm:size-11" strokeWidth={1.5} />
             </div>
-            <div className="relative z-10 mt-12 max-w-[640px] sm:mt-16">
+            <div className="relative z-10 mt-7 max-w-[640px] sm:mt-9">
               <Stars />
-              <blockquote className="mt-5 text-[23px] font-medium leading-[1.3] tracking-[-0.035em] sm:text-[29px] lg:text-[34px]">
-                « {featuredReview.quote} »
+              <blockquote className="mt-4 text-[20px] font-medium leading-[1.3] tracking-[-0.035em] sm:text-[24px] lg:text-[28px]">
+                « {activeReview.quote} »
               </blockquote>
             </div>
-            <div className="relative z-10 mt-8 flex items-end justify-between gap-4 border-t border-white/25 pt-5">
+            <div className="relative z-10 mt-6 flex items-end justify-between gap-4 border-t border-white/25 pt-4">
               <div>
-                <p className="text-sm font-semibold">{featuredReview.name}</p>
-                <p className="mt-1 text-xs text-white/70">{featuredReview.detail}</p>
+                <p className="text-sm font-semibold">{activeReview.name}</p>
+                <p className="mt-1 text-xs text-white/70">{activeReview.detail}</p>
               </div>
-              <span aria-hidden="true" className="font-mono text-xs tracking-[0.2em] text-white/60">01 / 03</span>
+              <span aria-hidden="true" className="font-mono text-xs tracking-[0.2em] text-white/60">
+                {String(activeIndex + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
+              </span>
             </div>
           </article>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
-            {supportingReviews.map((review, index) => (
-              <article
-                key={review.detail}
-                className={`relative flex min-h-[210px] flex-col justify-between overflow-hidden rounded-[1.5rem] p-5 sm:min-h-[230px] sm:p-6 lg:min-h-0 lg:rounded-[2rem] lg:p-7 ${
-                  review.tone === "sand"
-                    ? "bg-[#f0eee8] text-[#08143c]"
-                    : "border border-white/15 bg-white/[0.06] text-white"
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <Stars />
-                  <span className={`font-mono text-[10px] tracking-[0.15em] ${review.tone === "sand" ? "text-[#7a8293]" : "text-white/45"}`}>
-                    {String(index + 2).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
-                  </span>
-                </div>
-                <blockquote className="mt-7 text-[17px] font-medium leading-[1.45] tracking-[-0.025em] sm:text-lg">
-                  « {review.quote} »
-                </blockquote>
-                <div className={`mt-6 flex items-center gap-3 border-t pt-4 ${review.tone === "sand" ? "border-[#08143c]/10" : "border-white/15"}`}>
-                  <span className={`flex size-9 items-center justify-center rounded-full text-[10px] font-bold ${review.tone === "sand" ? "bg-[#08143c] text-white" : "bg-white/10 text-white"}`}>
-                    {review.initials}
-                  </span>
-                  <div>
-                    <p className="text-xs font-semibold">{review.name}</p>
-                    <p className={`mt-0.5 text-[11px] ${review.tone === "sand" ? "text-[#7a8293]" : "text-white/55"}`}>
-                      {review.detail}
-                    </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            {reviews
+              .filter((_, index) => index !== activeIndex)
+              .slice(0, 2)
+              .map((review) => (
+                <article
+                  key={review.detail}
+                  className={`relative flex min-h-[210px] flex-col justify-between overflow-hidden rounded-[1.5rem] p-5 sm:min-h-[230px] sm:p-6 lg:min-h-0 lg:rounded-[2rem] lg:p-7 ${
+                    review.tone === "sand"
+                      ? "bg-[#f0eee8] text-[#08143c]"
+                      : "border border-white/15 bg-white/[0.06] text-white"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <Stars />
+                    <Quote aria-hidden="true" className={`size-5 ${review.tone === "sand" ? "text-[#08143c]/25" : "text-white/30"}`} />
                   </div>
-                </div>
-              </article>
-            ))}
+                  <blockquote className="mt-7 text-[17px] font-medium leading-[1.45] tracking-[-0.025em] sm:text-lg">
+                    « {review.quote} »
+                  </blockquote>
+                  <div className={`mt-6 flex items-center gap-3 border-t pt-4 ${review.tone === "sand" ? "border-[#08143c]/10" : "border-white/15"}`}>
+                    <span className={`flex size-9 items-center justify-center rounded-full text-[10px] font-bold ${review.tone === "sand" ? "bg-[#08143c] text-white" : "bg-white/10 text-white"}`}>
+                      {review.initials}
+                    </span>
+                    <div>
+                      <p className="text-xs font-semibold">{review.name}</p>
+                      <p className={`mt-0.5 text-[11px] ${review.tone === "sand" ? "text-[#7a8293]" : "text-white/55"}`}>
+                        {review.detail}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              ))}
           </div>
         </div>
 
-        <div className="mt-7 flex flex-col gap-4 border-t border-white/15 pt-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs leading-relaxed text-[#aab5ca] sm:text-sm">
-            Vous préparez un projet pour vos locaux ? Parlons de vos besoins.
-          </p>
-          <a
-            href="#contact"
-            className="group inline-flex min-h-11 items-center gap-3 self-start rounded-full bg-white px-5 text-xs font-semibold text-[#08143c] transition-colors hover:bg-[#dce7ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:self-auto"
-          >
-            Échangeons sur votre projet
-            <ArrowUpRight aria-hidden="true" className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" />
-          </a>
+        <div className="mt-7 flex flex-col gap-5 border-t border-white/15 pt-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2" aria-label={`Avis ${activeIndex + 1} sur ${reviews.length}`}>
+              {reviews.map((review, index) => (
+                <button
+                  key={review.detail}
+                  type="button"
+                  aria-label={`Afficher l’avis ${index + 1} : ${review.detail}`}
+                  aria-current={index === activeIndex ? "true" : undefined}
+                  onClick={() => setActiveIndex(index)}
+                  className={`h-2 rounded-full transition-all motion-reduce:transition-none ${
+                    index === activeIndex ? "w-7 bg-[#8fb1ff]" : "w-2 bg-white/30 hover:bg-white/60"
+                  }`}
+                />
+              ))}
+            </div>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-[#aab5ca]">
+              {String(activeIndex + 1).padStart(2, "0")} — {String(reviews.length).padStart(2, "0")}
+            </span>
+          </div>
+          <div className="flex items-center justify-between gap-4 sm:justify-end">
+            <p className="text-xs leading-relaxed text-[#aab5ca] sm:text-sm">
+              Vous préparez un projet ? Parlons de vos besoins.
+            </p>
+            <div className="flex shrink-0 gap-2">
+              <button
+                type="button"
+                onClick={previousReview}
+                aria-label="Avis précédent"
+                className="flex size-11 items-center justify-center rounded-full border border-white/20 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                <ArrowLeft aria-hidden="true" className="size-4" />
+              </button>
+              <button
+                type="button"
+                onClick={nextReview}
+                aria-label="Avis suivant"
+                className="flex size-11 items-center justify-center rounded-full border border-white/20 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                <ArrowRight aria-hidden="true" className="size-4" />
+              </button>
+            </div>
+          </div>
         </div>
+
+        <a
+          href="#contact"
+          className="group mt-5 inline-flex min-h-11 items-center gap-3 rounded-full bg-white px-5 text-xs font-semibold text-[#08143c] transition-colors hover:bg-[#dce7ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:mt-0 sm:hidden"
+        >
+          Échangeons sur votre projet
+          <ArrowUpRight aria-hidden="true" className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" />
+        </a>
       </div>
     </section>
   );
