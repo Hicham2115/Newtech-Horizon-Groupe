@@ -71,3 +71,8 @@ Read from the next card shared by the user in the same WhatsApp Business catalog
 - English meaning: audio conferencing equipment.
 
 Include this offering in the website content. No price, brands, technical specifications, or installation claims were provided in the visible card text. Four catalogue cards have been captured so far; other entries can be added as the user shares them.
+
+## Google Maps location supplied by user
+
+- Maps link: https://www.google.com/maps/search/Prestigia+Hay+Riad+AL+Andalous+,hay+Riad.+Rabat/@33.9559,-6.8877,722m/data=!3m1!1e3?hl=en&entry=ttu
+- Use the supplied search link in contact content. Coordinates in its URL represent the map view center, not a verified business pin.
