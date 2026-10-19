@@ -154,22 +154,6 @@ html::-webkit-scrollbar-thumb:hover {
   background: #003fca;
 }
 
-.site-loader-emblem {
-  animation: site-loader-mark-in 700ms cubic-bezier(.2,.8,.2,1) both;
-}
-
-.site-loader { transition: opacity 420ms ease, visibility 420ms ease; }
-.site-loader-done { visibility: hidden; opacity: 0; }
-
-.site-loader-copy-in { animation: site-loader-copy-in 550ms ease both; }
-
-.site-intro-item { opacity: 0; transform: translateY(16px); }
-.site-intro-ready .site-intro-item { animation: site-intro-reveal 700ms cubic-bezier(.2,.8,.2,1) both; }
-.site-intro-ready .site-intro-item:nth-child(1) { animation-delay: 40ms; }
-.site-intro-ready .site-intro-item:nth-child(2) { animation-delay: 140ms; }
-.site-intro-ready .site-intro-item:nth-child(3) { animation-delay: 240ms; }
-.site-intro-ready .site-intro-item:nth-child(4) { animation-delay: 340ms; }
-
 html.section-reveal-ready main > section:not([aria-labelledby='hero-title']) {
   opacity: 0;
   transform: translateY(24px);
@@ -181,23 +165,7 @@ html.section-reveal-ready main > section:not([aria-labelledby='hero-title']).sec
   transform: translateY(0);
 }
 
-@keyframes site-loader-mark-in {
-  from { opacity: 0; transform: scale(.82) rotate(-8deg); }
-  to { opacity: 1; transform: scale(1) rotate(0); }
-}
-
-@keyframes site-loader-copy-in {
-  from { opacity: 0; transform: translateY(7px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes site-intro-reveal {
-  to { opacity: 1; transform: translateY(0); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .site-intro-item { opacity: 1; transform: none; }
-  .site-intro-ready .site-intro-item { animation: none; }
   html.section-reveal-ready main > section:not([aria-labelledby='hero-title']) { transform: none; transition: opacity 180ms ease; }
 }
 
