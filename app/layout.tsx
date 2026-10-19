@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Newtech Horizon Groupe | Solutions techniques à Rabat",
-  description: "Réseaux, sécurité et audiovisuel : des solutions adaptées à vos espaces professionnels à Rabat.",
+  title: "Installation de réseaux informatiques à Rabat | Newtech Horizon",
+  description: "Installation de réseaux informatiques et Wi-Fi pour les bureaux, salles de réunion et espaces de conférence à Rabat. Demandez un diagnostic.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

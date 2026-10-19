@@ -14,9 +14,9 @@ export function ContactSection() {
         </div>
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div>
-            <p className="mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#7b89a2] sm:text-xs"><span aria-hidden="true" className="h-0.5 w-8 bg-[#0055ff]" />Votre prochain projet</p>
-            <h2 id="contact-title" className="text-[32px] font-bold leading-[1.08] tracking-[-0.055em] sm:text-[40px]">Un projet en tête ?<br /><span className="relative inline-block text-[#0055ff]">Parlons-en.<span aria-hidden="true" className="absolute -bottom-1 left-0 h-1 w-14 rounded-full bg-[#ffbf47]" /></span></h2>
-            <p className="mt-5 max-w-[370px] text-[15px] leading-[1.75] text-[#7a8293]">Décrivez votre besoin, même en quelques lignes. Réseau, sécurité ou audiovisuel : commençons par en discuter.</p>
+            <p className="mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#7b89a2] sm:text-xs"><span aria-hidden="true" className="h-0.5 w-8 bg-[#0055ff]" />Demande de diagnostic</p>
+            <h2 id="contact-title" className="text-[32px] font-bold leading-[1.08] tracking-[-0.055em] sm:text-[40px]">Un réseau adapté<br /><span className="relative inline-block text-[#0055ff]">à vos espaces.<span aria-hidden="true" className="absolute -bottom-1 left-0 h-1 w-14 rounded-full bg-[#ffbf47]" /></span></h2>
+            <p className="mt-5 max-w-[370px] text-[15px] leading-[1.75] text-[#7a8293]">Décrivez vos besoins en installation réseau pour vos bureaux, salles de réunion ou espaces de conférence. Nous vous recontacterons pour étudier votre projet.</p>
             <div className="my-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
               <a href="tel:+212661137405" className="group flex w-fit items-center gap-3 rounded-lg border border-[#e1e8f2] bg-[#f8faff] px-4 py-3 text-sm font-semibold tracking-tight transition-colors hover:border-blue-200 hover:text-[#0055ff]">+212 661-137405<ArrowUpRight aria-hidden="true" size={16} className="text-[#0055ff] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" /></a>
               <a href="mailto:mestimox@gmail.com" className="group flex w-fit items-center gap-3 rounded-lg border border-[#e1e8f2] bg-[#f8faff] px-4 py-3 text-sm font-semibold tracking-tight transition-colors hover:border-blue-200 hover:text-[#0055ff]">mestimox@gmail.com<ArrowUpRight aria-hidden="true" size={16} className="text-[#0055ff] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" /></a>
@@ -30,7 +30,7 @@ export function ContactSection() {
             </div>
           </div>
           <div className="rounded-2xl border border-[#e5ebf4] bg-[#f8faff] p-5 sm:p-8 lg:p-9">
-            <p className="mb-6 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#7b89a2]"><span className="size-2 rounded-full bg-[#0055ff]" />Votre message</p>
+            <p className="mb-6 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#7b89a2]"><span className="size-2 rounded-full bg-[#0055ff]" />Demander un diagnostic réseau</p>
             <ContactForm />
           </div>
         </div>

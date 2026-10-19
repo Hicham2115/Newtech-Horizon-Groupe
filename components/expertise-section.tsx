@@ -4,8 +4,8 @@ import { ArrowRight } from "lucide-react";
 const expertises = [
   {
     number: "01",
-    title: "Réseaux & téléphonie",
-    description: "Nous étudions et réalisons vos réseaux informatiques, votre téléphonie filaire et radio ainsi que vos réseaux Wi-Fi. De l’analyse de vos besoins à la mise en place, nous vous accompagnons pour relier vos équipements et faciliter les échanges au sein de vos espaces professionnels.",
+    title: "Installation de réseaux informatiques",
+    description: "Nous étudions et installons vos réseaux informatiques et Wi-Fi dans les bureaux, salles de réunion et espaces de conférence de votre entreprise. De l’analyse de vos besoins à la mise en service, nous adaptons l’installation à vos locaux et à vos usages.",
     image: "/images/expertise-networks.png",
     alt: "Téléphone professionnel et radio devant une baie réseau aux câbles bleus",
   },
@@ -19,7 +19,7 @@ const expertises = [
   {
     number: "03",
     title: "Audiovisuel & conférence",
-    description: "Équipez vos salles de réunion et de conférence avec des solutions de sonorisation, de vidéoprojection et d’audioconférence adaptées à vos usages. Nous vous aidons à définir les équipements nécessaires pour diffuser vos présentations et faciliter la prise de parole et les échanges.",
+    description: "Équipez vos salles de réunion et de conférence avec un réseau informatique adapté, ainsi que des solutions de sonorisation, de vidéoprojection et d’audioconférence. Nous étudions vos usages pour faciliter les présentations, la prise de parole et les échanges.",
     image: "/images/expertise-conference.png",
     alt: "Salle de conférence équipée de microphones et d’un écran de projection",
   },

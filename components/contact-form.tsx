@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { useForm } from "@tanstack/react-form";
 import { z } from "zod";
 import { ArrowUpRight } from "lucide-react";
@@ -15,6 +14,8 @@ const schema = z.object({
   message: z.string().trim().min(10, "Décrivez votre projet en au moins 10 caractères.").max(3000, "Votre message doit contenir au maximum 3 000 caractères."),
 });
 
+const whatsappNumber = "212661137405";
+
 const fields = [
   { name: "name", label: "Votre nom", placeholder: "Nom et prénom", type: "text", autoComplete: "name", required: true },
   { name: "email", label: "Votre e-mail", placeholder: "vous@entreprise.fr", type: "email", autoComplete: "email", required: true },
@@ -22,21 +23,19 @@ const fields = [
 ] as const;
 
 export function ContactForm() {
-  const [notice, setNotice] = useState("");
   const form = useForm({
     defaultValues: { name: "", email: "", phone: "", message: "" },
     onSubmit: ({ value }) => {
       const parsed = schema.safeParse(value);
       if (!parsed.success) return;
       const data = parsed.data;
-      const body = `Bonjour,\n\n${data.message}\n\nNom : ${data.name}\nE-mail : ${data.email}\nTéléphone : ${data.phone || "Non renseigné"}`;
-      window.location.href = `mailto:mestimox@gmail.com?subject=${encodeURIComponent("Demande de contact — Newtech Horizon Groupe")}&body=${encodeURIComponent(body)}`;
-      setNotice("Votre e-mail est prêt à être ouvert. Vérifiez-le puis envoyez-le depuis votre messagerie. Vous pouvez aussi nous écrire directement à mestimox@gmail.com.");
+      const message = `Bonjour, je souhaite demander un diagnostic réseau.\n\n${data.message}\n\nNom : ${data.name}\nE-mail : ${data.email}\nTéléphone : ${data.phone || "Non renseigné"}`;
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     },
   });
 
   return (
-    <form noValidate onSubmit={event => { event.preventDefault(); setNotice(""); void form.handleSubmit(); }} className="space-y-6">
+    <form noValidate onSubmit={event => { event.preventDefault(); void form.handleSubmit(); }} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         {fields.map(({ name, label, placeholder, type, autoComplete, required }) => (
           <form.Field key={name} name={name} validators={{ onBlur: ({ value }) => schema.shape[name].safeParse(value).error?.issues[0]?.message, onSubmit: ({ value }) => schema.shape[name].safeParse(value).error?.issues[0]?.message }}>
@@ -54,11 +53,10 @@ export function ContactForm() {
       <form.Field name="message" validators={{ onBlur: schema.shape.message, onSubmit: schema.shape.message }}>
         {field => {
           const error = field.state.meta.errors[0];
-          return <div><Label htmlFor="contact-message" className="mb-2 block text-xs font-semibold text-[#08143c]">Votre projet<span className="ml-1 text-[#0055ff]">*</span></Label><Textarea id="contact-message" name="message" required maxLength={3000} rows={5} placeholder="Parlez-nous de vos besoins, de vos locaux et des équipements souhaités…" value={field.state.value} onChange={event => field.handleChange(event.target.value)} onBlur={field.handleBlur} aria-invalid={!!error} aria-describedby={error ? "message-error" : undefined} className="min-h-36 resize-y rounded-none border-0 border-b border-[#ced7e5] bg-transparent px-0 py-3 text-sm leading-relaxed shadow-none outline-none aria-invalid:ring-0 focus-visible:outline-none focus-visible:border-[#0055ff] focus-visible:ring-0" />{error && <p id="message-error" role="alert" className="mt-2 text-xs text-red-600">{typeof error === "string" ? error : error.message}</p>}</div>;
+          return <div><Label htmlFor="contact-message" className="mb-2 block text-xs font-semibold text-[#08143c]">Votre besoin réseau<span className="ml-1 text-[#0055ff]">*</span></Label><Textarea id="contact-message" name="message" required maxLength={3000} rows={5} placeholder="Indiquez vos locaux (bureaux, salle de réunion ou de conférence) et votre besoin en réseau…" value={field.state.value} onChange={event => field.handleChange(event.target.value)} onBlur={field.handleBlur} aria-invalid={!!error} aria-describedby={error ? "message-error" : undefined} className="min-h-36 resize-y rounded-none border-0 border-b border-[#ced7e5] bg-transparent px-0 py-3 text-sm leading-relaxed shadow-none outline-none aria-invalid:ring-0 focus-visible:outline-none focus-visible:border-[#0055ff] focus-visible:ring-0" />{error && <p id="message-error" role="alert" className="mt-2 text-xs text-red-600">{typeof error === "string" ? error : error.message}</p>}</div>;
         }}
       </form.Field>
-      <div className="flex flex-col items-start gap-3"><button type="submit" className="group inline-flex min-h-12 items-center gap-5 rounded-md bg-[#0055ff] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0046d6]">Écrire à notre équipe<ArrowUpRight size={17} aria-hidden="true" className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" /></button><p className="max-w-md text-xs leading-relaxed text-[#7a8293]">Les champs marqués d’un * sont obligatoires. Ce formulaire ouvre votre messagerie avec un e-mail prêt à envoyer.</p></div>
-      {notice && <p role="status" className="rounded-md bg-[#eff5ff] p-3 text-sm leading-relaxed text-[#08143c]">{notice}</p>}
+      <div className="flex flex-col items-start gap-3"><button type="submit" className="group inline-flex min-h-12 items-center gap-5 rounded-md bg-[#0055ff] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0046d6]">Envoyer sur WhatsApp<ArrowUpRight size={17} aria-hidden="true" className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" /></button><p className="max-w-md text-xs leading-relaxed text-[#7a8293]">Les champs marqués d’un * sont obligatoires. WhatsApp s’ouvrira avec votre message prêt à envoyer.</p></div>
     </form>
   );
 }

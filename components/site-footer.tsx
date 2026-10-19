@@ -27,7 +27,7 @@ export function SiteFooter() {
               <span className="text-lg font-bold tracking-[-0.05em]">Newtech Horizon</span>
             </a>
             <p className="mt-5 max-w-sm text-sm leading-[1.8] text-white/60">Le partenaire de vos solutions techniques. Des installations pensées pour les usages de vos espaces professionnels.</p>
-            <a href="#contact" className="group mt-7 inline-flex items-center gap-3 rounded-full border border-white/20 px-5 py-3 text-sm font-semibold transition-colors hover:border-[#8fb1ff] hover:bg-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Parlons de votre projet<ArrowUpRight aria-hidden="true" size={16} className="text-[#8fb1ff] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" /></a>
+            <a href="#contact" className="group mt-7 inline-flex items-center gap-3 rounded-full border border-white/20 px-5 py-3 text-sm font-semibold transition-colors hover:border-[#8fb1ff] hover:bg-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Demander un diagnostic<ArrowUpRight aria-hidden="true" size={16} className="text-[#8fb1ff] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" /></a>
           </div>
 
           <nav aria-label="Navigation de pied de page">

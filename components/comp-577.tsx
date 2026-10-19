@@ -53,7 +53,7 @@ export default function Navbar() {
             {navigationLinks.map((link) => <NavigationMenuItem key={link.label}><NavigationMenuLink className="relative rounded-sm px-1 py-3 text-[14px] font-medium transition-colors hover:bg-transparent hover:text-[#0055ff] after:absolute after:inset-x-1 after:bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:bg-[#0055ff] after:transition-transform after:duration-300 hover:after:scale-x-100 focus-visible:after:scale-x-100 motion-reduce:after:transition-none xl:text-[14px]" href={link.href}>{link.label}</NavigationMenuLink></NavigationMenuItem>)}
           </NavigationMenuList>
         </NavigationMenu>
-        <Button render={<a href="#contact" />} nativeButton={false} className="hidden h-[46px] gap-5 rounded-[5px] bg-[#0055ff] px-5 text-sm font-semibold text-white hover:bg-[#0046d6] xl:inline-flex xl:px-8 xl:text-sm">Parlons de votre projet <ArrowRight className="size-5" /></Button>
+        <Button render={<a href="#contact" />} nativeButton={false} className="hidden h-[46px] gap-5 rounded-[5px] bg-[#0055ff] px-5 text-sm font-semibold text-white hover:bg-[#0046d6] xl:inline-flex xl:px-8 xl:text-sm">Demander un diagnostic <ArrowRight className="size-5" /></Button>
         <Dialog.Root open={open} onOpenChange={setOpen}>
           <Dialog.Trigger asChild>
             <button type="button" aria-label="Ouvrir le menu" className="inline-flex size-11 shrink-0 items-center justify-center rounded-lg border border-blue-100 text-[#08143c] transition-colors hover:bg-blue-50 xl:hidden"><Menu size={22} /></button>
@@ -71,7 +71,7 @@ export default function Navbar() {
               </nav>
               <div className="mt-auto px-6 pb-[max(24px,env(safe-area-inset-bottom))] pt-4">
                 <div className="mb-6 space-y-4 text-sm text-slate-500"><a href="tel:+212661137405" className="flex items-center gap-3 hover:text-[#0055ff]"><Phone size={16} className="text-[#0055ff]" />+212 661-137405</a><a href="mailto:mestimox@gmail.com" className="flex items-center gap-3 hover:text-[#0055ff]"><Mail size={16} className="text-[#0055ff]" />mestimox@gmail.com</a><p className="flex items-center gap-3"><MapPin size={16} className="text-[#0055ff]" />Hay Riad, Rabat</p></div>
-                <Dialog.Close asChild><a href="#contact" className="flex min-h-12 items-center justify-between gap-3 rounded-md bg-[#0055ff] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0046d6]">Parlons de votre projet<ArrowRight size={18} /></a></Dialog.Close>
+                <Dialog.Close asChild><a href="#contact" className="flex min-h-12 items-center justify-between gap-3 rounded-md bg-[#0055ff] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0046d6]">Demander un diagnostic<ArrowRight size={18} /></a></Dialog.Close>
               </div>
             </Dialog.Content>
           </Dialog.Portal>

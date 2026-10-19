@@ -6,11 +6,11 @@ import { ArrowUpRight, Plus } from "lucide-react";
 const questions = [
   {
     question: "Quels types de projets accompagnez-vous ?",
-    answer: "Nous intervenons sur les réseaux informatiques, la téléphonie filaire et radio, le Wi-Fi, la vidéosurveillance et les systèmes de sécurité. Nous proposons également des solutions de sonorisation, de vidéoprojection, d’audioconférence et des armoires informatiques pour vos espaces professionnels.",
+    answer: "Nous installons des réseaux informatiques et Wi-Fi dans les bureaux, salles de réunion et espaces de conférence des entreprises. Nous intervenons aussi sur la téléphonie, la sécurité, la vidéosurveillance et les équipements audiovisuels.",
   },
   {
-    question: "Comment demander un devis ?",
-    answer: "Écrivez-nous à mestimox@gmail.com ou appelez le +212 661-137405. Présentez votre besoin, le lieu du projet et les équipements concernés. Ces premiers éléments nous permettent d’échanger avec vous et de préciser les informations nécessaires à votre devis.",
+    question: "Comment demander un diagnostic réseau ?",
+    answer: "Utilisez le formulaire de contact ou appelez le +212 661-137405. Indiquez le type de locaux — bureaux, salle de réunion ou de conférence — et décrivez votre besoin réseau. Nous vous recontacterons pour étudier votre projet.",
   },
   {
     question: "Mon besoin n’est pas encore bien défini. Pouvez-vous me conseiller ?",
